@@ -1,0 +1,17 @@
+include ./mixins.pug
+
+
+- var assetsHost = "http://localhost:3301"
+- var assetsImages = assetsHost + "/static/img"
+div(class="slider")
+  section(id="group" class="slider-element section-wrapper")
+    include group.pug
+  section(id="categories" class="slider-element section-wrapper")
+    include categories.pug
+  section(id="shop" class="slider-element section-wrapper")
+    include shop.pug
+  section(id="brands" class="slider-element section-wrapper")
+    include brands.pug
+  section(id="whyus" class="slider-element section-wrapper")
+    include whyus.pug
+

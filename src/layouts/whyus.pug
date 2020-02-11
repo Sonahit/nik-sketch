@@ -1,0 +1,30 @@
+extends common/overlay.pug
+
+append overlayLeftRectangles
+  div(class="line line-white line-medium")
+  section(class="overlay__rectangles")
+    each rect_color in ['white', 'white', 'white']
+      div(class="rectangle-" + rect_color)
+
+append overlayRightRectangles
+  section(class="overlay__rectangles")
+    each rect_color in ['white', 'white']
+      div(class="rectangle-" + rect_color)
+
+append overlaySlider
+  section(class="overlay__slider")
+    each rect_color in ['white']
+      div(class="rectangle-" + rect_color + " " + "overlay__slider__element")
+    each circle_color in ['white', 'white', 'white', 'white', 'white is-active']
+      div(class="circle-" + circle_color + " " +  "overlay__slider__element")
+    each rect_color in ['white']
+      div(class="rectangle-" + rect_color + " " + "overlay__slider__element")
+
+block content
+  div(class="grid-wrapper")
+    - var whyusImages = assetsImages + "/whyus"
+    aside(class="whyus__content-aside")
+      img(src=whyusImages + "/girlone.png", alt="")
+    section(class="whyus__content")
+      section(class="cards")
+

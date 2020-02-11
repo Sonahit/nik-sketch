@@ -1,0 +1,18 @@
+#group {
+    background-color: #e3e3e3;
+}
+
+.group{
+    &__content-aside{
+        grid-row: 2;
+        grid-column: 1;
+    }
+    &__content{
+        grid-column: 3 / 7;
+        grid-row: 2 / 4;
+    }
+    &__logo{
+        grid-row: 5;
+        grid-column: 2;
+    }
+}

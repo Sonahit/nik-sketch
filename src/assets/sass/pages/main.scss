@@ -1,0 +1,42 @@
+@import './brands.scss';
+@import './categories.scss';
+@import './group.scss';
+@import './shop.scss';
+@import './whyus.scss';
+
+.slider {
+    &__element {
+        //
+    }
+}
+
+.section-wrapper {
+    //
+}
+
+.grid-wrapper{
+    display: grid;
+    height: 100%;
+    width: 100%;
+    grid-template-columns: repeat(5, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+}
+
+#group, #categories, #shop, #whyus, #brands{
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-origin: border-box;
+    img {
+        width: 100%;
+        height: 100%;
+    }
+}
+
+#categories, #shop, #whyus, #brands{
+    .overlay{
+        &__share{
+            color: white;
+        }
+    }
+}
+

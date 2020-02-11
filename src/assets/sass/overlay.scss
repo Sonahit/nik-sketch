@@ -1,0 +1,99 @@
+// IMPORTANT: MAKE GRID FFS
+
+@include gen-grid-column("grd-clmn", 5);
+.bg-lines {
+    border-left: 1px black solid;
+    border-right: 1px black solid;
+}
+
+.overlay {
+    display: grid;
+    $outer: 10;
+    $between: 5;
+    $inner: 100 - 2 * ($outer + $between);
+    $outer-p: percentage($outer / 100);
+    $between-p: percentage($between / 100);
+    $inner-p: percentage($inner / 100);
+    grid-template-columns: $outer-p $between-p $inner-p $between-p $outer-p;
+    grid-template-rows: 100%;
+    &__between {
+        @extend .bg-lines;
+        position: relative;
+        &__container {
+            display: flex;
+            align-items: center;
+            flex-direction: row;
+            position: relative;
+            top: 7%;
+        }
+    }
+
+    &__between &__rectangles {
+        position: relative;
+        display: flex;
+        align-items: center;
+        flex-direction: row;
+        @media screen and (max-width: 600px) {
+            flex-direction: column-reverse;
+        }
+    }
+    $margin-1900: 38px;
+    $margin-1700: 34px;
+    $margin-1600: 30px;
+    $margin-1400: 26px;
+    &__between.grd-clmn-4 {
+        border-color: rgba( #707070, 0.5);
+        & .overlay__between__container {
+            justify-content: center;
+            [class^="rectangle"] {
+                position: relative;
+
+                &:nth-child(even){
+                    left: 16%;
+
+                    $height: 20px;
+                    $width: $height / 1.5;
+                    width: $width;
+                    height: $height;
+                }
+
+                &:nth-child(odd){
+                    left: -16%
+                }
+                @media screen and (max-width: 600px) {
+                    &:nth-child(odd), &:nth-child(even){
+                        left: initial;
+                    }
+                }
+            }
+        }
+    }
+
+    &__outer {
+        position: relative;
+    }
+    &__outer &__share {
+        position: absolute;
+        right: -10%;
+        top: 8%;
+        cursor: pointer;
+        font-size: 20px;
+    }
+    &__inner{
+        height: 100%;
+        width: 100%;
+    }
+    &__slider {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+
+        position: absolute;
+        top: 50%;
+        transform: translateX(-50%);
+        &__element {
+            margin: 5px 0;
+        }
+    }
+}

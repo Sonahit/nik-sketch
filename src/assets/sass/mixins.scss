@@ -1,0 +1,42 @@
+@mixin flex($direction: row, $grow: 0, $shrink: 1, $basis: auto) {
+    display: flex;
+    flex: $grow $shrink $basis;
+    flex-direction: $direction;
+}
+
+@mixin rectangle($height, $border-width: 2px, $color: black) {
+    $width: $height / 2;
+    $padding-top-down: $width / 10;
+    $padding-left-right: $height / 4;
+
+    display: flex;
+    height: $height;
+    width: $width;
+    padding: $padding-top-down $padding-left-right;
+    border-color: $color;
+    border-width: $border-width;
+    border-style: solid;
+}
+
+@mixin circle($height, $color) {
+    width: $height;
+    height: $height;
+    border: 2px $color solid;
+    border-radius: 50%;
+}
+
+@mixin gen-grid-column($class, $overall) {
+    @for $column from 0 through $overall {
+        .#{$class}-#{$column} {
+            grid-column: $column;
+        }
+    }
+}
+
+@mixin gen-grid-rows($class, $overall) {
+    @for $row from 0 through $overall {
+        .#{$class}-#{$row} {
+            grid-row: $row;
+        }
+    }
+}

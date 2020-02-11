@@ -1,0 +1,34 @@
+extends common/overlay.pug
+
+append overlayLeftRectangles
+  div(class="line line-medium")
+  section(class="overlay__rectangles")
+    each rect_color in ['black', 'black', 'black']
+      div(class="rectangle-" + rect_color)
+
+append overlayRightRectangles
+  section(class="overlay__rectangles")
+    each rect_color in ['black', 'black']
+      div(class="rectangle-" + rect_color)
+
+append overlaySlider
+  section(class="overlay__slider")
+    each rect_color in ['black']
+      div(class="rectangle-" + rect_color + " " + "overlay__slider__element")
+    each circle_color in ['black is-active', 'black', 'black', 'black', 'black']
+      div(class="circle-" + circle_color + " " +  "overlay__slider__element")
+    each rect_color in ['black']
+      div(class="rectangle-" + rect_color + " " + "overlay__slider__element")
+
+block content
+  - var groupImages = assetsImages + "/group"
+  div(class="grid-wrapper")
+    aside(class="group__content-aside")
+      img(src=groupImages + "/girlone.png", alt="")
+    section(class="group__content")
+      img(src=groupImages + "/girltwo.png", alt="")
+    section(class="group__logo")
+      img(src=groupImages + "/logo.png", alt="")
+
+
+
