@@ -1,19 +1,48 @@
 #categories {
-    @extend .bg-black;
-    background-image: url("http://localhost:3301/static/img/categories/categories_bg.png");
+    position: relative;
+    &::after{
+        @extend %background;
+        background-image: url("http://localhost:3301/static/img/categories/categories_bg.png");
+    }
 }
 
 .categories{
-    &__content-aside{
+    grid-column: 1 / 8;
+    grid-row: 2 / 4;
+
+    &__button{
+        grid-column: 8;
         grid-row: 2;
-        grid-column: 1;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: rgba($color: #707070, $alpha: 0.5);
+        color: white;
+        font-size: 40px;
+        cursor: pointer;
     }
-    &__content{
-        grid-column: 3 / 7;
-        grid-row: 2 / 4;
-    }
-    &__logo{
-        grid-row: 5;
-        grid-column: 2;
+
+    &__card{
+        margin: 0 30px 0 0;
+        &:last-child{
+            margin: 0;
+        }
+        &_top{
+            font-size: 25px;
+            color: $gray-light;
+        }
+        &:nth-child(even){
+            p {
+                color: white;
+            }
+        }
+        &_bottom{
+            display: flex;
+            flex-direction: row-reverse;
+            align-items: center;
+            font-size: 40px;
+            justify-content: flex-end;
+            padding-left: 20px;
+        }
     }
 }

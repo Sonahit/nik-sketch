@@ -1,19 +1,43 @@
 #shop {
-    @extend .bg-black;
-    background-image: url("http://localhost:3301/static/img/shop/shop_bg.png");
+    position: relative;
+    &::after{
+        @extend %background;
+        background-image: url("http://localhost:3301/static/img/shop/shop_bg.png");
+    }
 }
 
 .shop{
-    &__content-aside{
-        grid-row: 2;
-        grid-column: 1;
+    &__card{
+        position: relative;
+        &__button{
+            position: absolute;
+            top: 5%;
+            right: 5%;
+            width: 15px;
+            height: 20px;
+        }
+        margin: 0 30px 0 0;
+        &:last-child{
+            margin: 0;
+        }
     }
     &__content{
-        grid-column: 3 / 7;
+        grid-column: 1 / 8;
         grid-row: 2 / 4;
     }
-    &__logo{
-        grid-row: 5;
-        grid-column: 2;
+    &__categories{
+        grid-column: 8 / 10;
+        grid-row: 2 / 4;
+        position: relative;
+        p {
+            margin: 30px 0;
+        }
+        left: 40%;
+        justify-self: center;
+        align-self: flex-start;
+        font-size: 40px;
+        font-weight: bold;
+        color: white;
+        z-index: 10;
     }
 }

@@ -21,16 +21,32 @@ append overlaySlider
       div(class="rectangle-" + rect_color + " " + "overlay__slider__element")
 
 block content
-  div(class="grid-wrapper")
+  .grid-wrapper
     - var categoriesImages = assetsImages + "/categories"
-    section(class="categories__content")
+    .section-name.ff-roboto
+      p categories
+    aside(class="section-logo")
+      p new collections
+    section(class="categories")
       section(class="cards")
-        +card()
-          img(src=categoriesImages + "/top.png", alt="")
-        +card()
-          img(src=categoriesImages + "/pants.png", alt="")
-        +card()
-          img(src=categoriesImages + "/shoes.png", alt="")
-
-
+        +card("categories__card")
+          .categories__card_top
+            img(src=categoriesImages + "/top.png", alt="")
+          .categories__card_bottom.ff-roboto
+            .line.line-medium
+            p Lorem
+        +card("categories__card")
+          .categories__card_top
+            img(src=categoriesImages + "/pants.png", alt="")
+          .categories__card_bottom.ff-roboto
+            .line.line-medium
+            p Lorem
+        +card("categories__card")
+          .categories__card_top
+            img(src=categoriesImages + "/shoes.png", alt="")
+          .categories__card_bottom.ff-roboto
+            .line.line-medium
+            p Lorem
+    aside(class="categories__button")
+      p +
 

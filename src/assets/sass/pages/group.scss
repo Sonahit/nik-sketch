@@ -3,16 +3,97 @@
 }
 
 .group{
-    &__content-aside{
+    &__aside{
+        position: relative;
+        grid-row: 3 / 5 ;
+        grid-column: 1 / 4;
+        justify-self: center;
+        right: 100%;
+        $offset : 2;
+        transform: translateX(percentage((50 + $offset) / 100));
+        width: 100%;
+        &__img{
+            display: flex;
+        }
+        &__description{
+            font-size: 20px;
+        }
+    }
+    &__border{
+        position: absolute;
+        grid-column: 4 / 8;
+        height: 100%;
+        width: 100%;
+        border-color: rgba($gray-light, 0.5);
+        @extend .bg-lines;
+        &-bottom{
+            height: 50%;
+            width: 100%;
+            grid-column: 4;
+            grid-row: 5;
+            align-self: flex-end;
+            @extend .bg-lines;
+            border-color: rgba($gray-light, 0.5);
+            border-left: none;
+        }
+    }
+    /* ================= Strange clipped number*/
+    &__number{
         grid-row: 2;
-        grid-column: 1;
+        grid-column: 2;
+        justify-self: flex-end;
+        font-size: 40px;
+        font-weight: bold;
     }
     &__content{
-        grid-column: 3 / 7;
-        grid-row: 2 / 4;
+        grid-column: 4 / 9;
+        grid-row: 2 / 5;
+        display: flex;
+        flex-direction: column;
+        align-self: flex-end;
+        z-index: 5;
+        &_top{
+            padding: 10px 5px;
+            font-size: 25px;
+            width: 40%;
+            color: $gray-light;
+        }
+        &_bottom{
+            display: flex;
+            align-items: flex-end;
+        }
+    }
+    &__company{
+        display: flex;
+        flex-direction: column;
+        align-items: end;
+        grid-row: 3 / 5;
+        grid-column: 2 / 4;
+        z-index: 10;
+        font-family: Roboto, 'Helvetica Neue', sans-serif;
+        h1, h2, h3, h4, h5, h6, p, span {
+            font-size: 100px;
+        }
+        &__logo{
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            & .line{
+                padding: 0 40%;
+            }
+        }
     }
     &__logo{
+        display: flex;
+        justify-self: center;
         grid-row: 5;
-        grid-column: 2;
+        grid-column: 3;
+        background-color: $gray-light;
+        border: 20px solid $gray-light;
+        img{
+            margin: auto 0;
+        }
     }
 }

@@ -1,0 +1,11 @@
+mixin card(cardClass = "")
+  if cardClass == ""
+    div(class="card")
+      if block
+        block
+  else
+    div(class="card" + " " + cardClass)
+      if block
+        block
+
+

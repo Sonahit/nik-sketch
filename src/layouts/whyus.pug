@@ -21,10 +21,21 @@ append overlaySlider
       div(class="rectangle-" + rect_color + " " + "overlay__slider__element")
 
 block content
-  div(class="grid-wrapper")
+  .grid-wrapper
     - var whyusImages = assetsImages + "/whyus"
-    aside(class="whyus__content-aside")
-      img(src=whyusImages + "/girlone.png", alt="")
+    aside(class="whyus__title")
+      .whyus__title__container
+        div(class="line line-medium pad-l-50 pad-r-50 mar-l-50")
+        h2 why are we?
     section(class="whyus__content")
-      section(class="cards")
+      .cards
+        +card("whyus__card")
+          div(class="whyus__card__holder")
+            p We have <strong>high-quality</strong> clothes
+        +card("whyus__card")
+          div(class="whyus__card__holder")
+            p We have <strong>stylish</strong> clothes
+        +card("whyus__card")
+          div(class="whyus__card__holder")
+            p Your opinion is <strong>important</strong> to us
 

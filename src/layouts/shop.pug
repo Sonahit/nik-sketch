@@ -21,10 +21,26 @@ append overlaySlider
       div(class="rectangle-" + rect_color + " " + "overlay__slider__element")
 
 block content
-  div(class="grid-wrapper")
+  .grid-wrapper
     - var shopImages = assetsImages + "/shop"
-    aside(class="shop__content-aside")
-      img(src=shopImages + "/girlone.png", alt="")
+    .section-name.ff-roboto
+      .line.line-medium.line-white
+      p shop
+    aside(class="section-logo")
+      p popular
+    aside(class="shop__categories ff-roboto")
+      p pants
+      p shoes
+      p top
     section(class="shop__content")
-      img(src=shopImages + "/girltwo.png", alt="")
+      section(class="cards")
+        +card("shop__card")
+          .shop__card__button.rectangle-black
+          img(src=shopImages + "/" + "girlone.png", alt="girlone")
+        +card("shop__card")
+          .shop__card__button.rectangle-black
+          img(src=shopImages + "/" + "girltwo.png", alt="girltwo")
+        +card("shop__card")
+          .shop__card__button.rectangle-white
+          img(src=shopImages + "/" + "girlthree.png", alt="girlthree")
 

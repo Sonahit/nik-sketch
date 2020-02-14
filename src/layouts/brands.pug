@@ -1,7 +1,7 @@
 extends common/overlay.pug
 
 append overlayLeftRectangles
-  div(class="line line-white line-medium")
+  div(class="line c-white line-white line-medium")
   section(class="overlay__rectangles")
     each rect_color in ['white', 'white', 'white']
       div(class="rectangle-" + rect_color)
@@ -9,7 +9,7 @@ append overlayLeftRectangles
 append overlayRightRectangles
   section(class="overlay__rectangles")
     each rect_color in ['white', 'white']
-      div(class="rectangle-white")
+      div(class="rectangle-" + rect_color)
 
 append overlaySlider
   section(class="overlay__slider")
@@ -23,9 +23,38 @@ append overlaySlider
 block content
   div(class="grid-wrapper")
     - var brandsImages = assetsImages + "/brands"
-    aside(class="brands__content-aside")
-      img(src=brandsImages + "/girlone.png", alt="")
+    .section-name.ff-roboto
+      .line.line-medium.line-white
+      p brands
     section(class="brands__content")
-      img(src=brandsImages + "/girltwo.png", alt="")
-
+      .brands__slider__container
+        .brands__slider__elements
+          .brands__slider__element
+            img(src=brandsImages + "/kepka.png", alt="")
+          .brands__slider__element
+            img(src=brandsImages + "/kepka.png", alt="")
+          .brands__slider__element
+            img(src=brandsImages + "/kepka.png", alt="")
+          .brands__slider__element
+            img(src=brandsImages + "/kepka.png", alt="")
+          .brands__slider__element
+            img(src=brandsImages + "/kepka.png", alt="")
+      .brands__button-left.rectangle-white
+      .brands__button-right.rectangle-white
+      .brands__content__inner
+        .brands__content__inner-text
+          | Lorem ipsum dolor sit amet
+        .brands__content__inner-buttons
+          .brands__content__inner-button
+            | PRODUCT
+          .brands__content__inner-button
+            | MORE DETAILS
+      .brands__slider
+        each point in ['brands__slider__button is-active', 'brands__slider__button not-active', 'brands__slider__button not-active', 'brands__slider__button not-active', 'brands__slider__button not-active']
+          div(class=point)
+    .brands__categories.ff-roboto
+      p GRAZ
+      p GANT
+      p G-start raw
+      p DIESEL
 

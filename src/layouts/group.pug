@@ -22,11 +22,30 @@ append overlaySlider
 
 block content
   - var groupImages = assetsImages + "/group"
-  div(class="grid-wrapper")
-    aside(class="group__content-aside")
-      img(src=groupImages + "/girlone.png", alt="")
+  .grid-wrapper
+    .group__border
+    .group__border-bottom
+    aside(class="group__number gray-light ff-roboto")
+      span(class="clip__left-down") 0
+      span 1
+    aside(class="group__aside")
+      .group__aside__img
+        .flex-align-start
+          img(src=groupImages + "/girlone.png", alt="")
+      .group__aside__description
+        p Lorem ipsum dolor, sit amet consectetur adipisicing elit. Corrupti, deserunt minus. Voluptatem unde quasi sed ipsam error architecto vero, laborum rerum dolor iusto nam optio veritatis laboriosam corrupti repudiandae labore!
+    section(class="group__company ff-mont-roboto")
+      h2 A.B.A
+      .group__company__logo
+        .line.line-medium
+        p
+          span(class="text-black") gro
+          span(class="text-white") up
     section(class="group__content")
-      img(src=groupImages + "/girltwo.png", alt="")
+      .group__content_top
+        h4 Lorem ipsum dolor sit amet consectetur adipisicing elit.
+      .group__content_bottom
+        img(src=groupImages + "/girltwo.png", alt="")
     section(class="group__logo")
       img(src=groupImages + "/logo.png", alt="")
 
