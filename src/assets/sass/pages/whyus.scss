@@ -6,6 +6,13 @@
     }
 }
 
+#whyus-clone{
+    position: relative;
+    &::after{
+        @extend %background;
+        background-image: url("http://localhost:3301/static/img/whyus/whyus_bg.png");
+    }
+}
 
 .whyus{
     &__content-aside{

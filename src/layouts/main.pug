@@ -3,15 +3,16 @@ include common/mixins.pug
 
 - var assetsHost = "http://localhost:3301"
 - var assetsImages = assetsHost + "/static/img"
-div(class="slider")
-  div(id="group" class="slider-element section-wrapper")
-    include group.pug
-  div(id="categories" class="slider-element section-wrapper")
-    include categories.pug
-  div(id="shop" class="slider-element section-wrapper")
-    include shop.pug
-  div(id="brands" class="slider-element section-wrapper")
-    include brands.pug
-  div(id="whyus" class="slider-element section-wrapper")
-    include whyus.pug
+.page-slider
+  .page-slider__container(style="transform:translateY(-100%);")
+    #group.page-slider__element
+      include group.pug
+    #categories.page-slider__element
+      include categories.pug
+    #shop.page-slider__element
+      include shop.pug
+    #brands.page-slider__element
+      include brands.pug
+    #whyus.page-slider__element
+      include whyus.pug
 

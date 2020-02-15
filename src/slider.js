@@ -1,7 +1,7 @@
 let timeout = false;
 document.querySelector('.brands__slider').addEventListener('click', (ev) => {
 
-  if(timeout) return timeout = false;
+  if(timeout) return;
   /**
    * @type HTMLDivElement
    */
@@ -17,11 +17,12 @@ document.querySelector('.brands__slider').addEventListener('click', (ev) => {
   //Currently works out of the circle
   if(!clicked || !active || !slider)  return;
   if(clicked.classList.contains('is-active')){
-    clicked.classList.remove('is-active');
-    clicked.classList.add('not-active');
+    return;
   } else {
+    clicked.classList.remove('not-active');
     clicked.classList.add('is-active');
     active.classList.add('not-active');
+    active.classList.remove('is-active');
   };
   const max = slider.children.length;
   const current = Array.from(slider.children).findIndex(c => c === clicked);
@@ -29,8 +30,6 @@ document.querySelector('.brands__slider').addEventListener('click', (ev) => {
   const min = 0;
   container.style.transform = `translateX(${-current * 100}%)`;
   timeout = setTimeout(() => {
-    active.classList.remove('is-active');
-    clicked.classList.remove('not-active');
     timeout = false;
   }, 500)
 });

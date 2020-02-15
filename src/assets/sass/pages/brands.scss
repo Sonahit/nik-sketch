@@ -104,57 +104,107 @@
             border-radius: 50%;
             cursor: pointer;
             z-index: 10;
+
+
+            $offset-slider: -56%;
+            @keyframes shrink-left {
+                from {
+                width: 21px;
+                left: -100% + $offset-slider;
+                }
+                to {
+                left: 0;
+                width: 0px;
+                }
+            }
+            @keyframes shrink-right {
+                from {
+                width: 21px;
+                left: 100%;
+                }
+                to {
+                left: 100%;
+                width: 0px;
+                }
+            }
+            @keyframes grow-left {
+                from {
+                    width: 0;
+                    left: 0%;
+                }
+                to {
+                    left: -100% + $offset-slider;
+                    width: 21px;
+                }
+            }
+            @keyframes grow-right {
+                from {
+                width: 0;
+                left: 100%;
+                }
+                to {
+                left: 100%;
+                width: 21px;
+                }
+            }
             &::before, &::after{
                 content: "";
-                width: 0px;
                 border-top: 1px solid gainsboro;
-                transition: all .5s ease;
-            }
-            &.not-active{
-                &::before, &::after{
-                    content: "";
-                    width: 0px !important;
-                    border-top: 1px solid gainsboro;
-                    transition: all .5s ease;
-                }
+                position: absolute;
             }
             &.is-active{
                 background-color: initial;
                 &:last-child {
                     &::before{
                         top: 50%;
-                        left: -156%;
+                        animation: .5s grow-left ease forwards;
                     }
                 }
                 &:nth-child(3n), &:nth-child(2n){
                     &::before{
                         top: 50%;
-                        left: -156%;
+                        animation: .5s grow-left ease forwards;
                     }
                     &::after{
                         cursor: initial;
                         content: "";
                         display: block;
                         width: 21px;
-                        position: absolute;
+
                         top: 50%;
-                        left: 100%;
-                        transition: all .5s ease;
+                        animation: .5s grow-right ease forwards;
                     }
                 }
                 &::before{
                     cursor: initial;
                     content: "";
-                    width: 21px;
-                    border-top: 1px solid gainsboro;
-                    position: absolute;
                     top: 50%;
-                    left: 100%;
-                    transition: all .5s ease;
+                    animation: .5s grow-right ease forwards;
+                }
+            }
+            &.not-active{
+                &::before, &::after{
+                    content: "";
+                    top: 50%;
+                }
+                &::before{
+                    animation: .5s shrink-right ease forwards;
+                }
+                &:last-child{
+                    &::before{
+                        animation: .5s shrink-left ease forwards;
+                    }
+                }
+                &:nth-child(3n), &:nth-child(2n){
+                    &::before{
+                        animation: .5s shrink-left ease forwards;
+                    }
+                    &::after{
+                        animation: .5s shrink-right ease forwards;
+                    }
                 }
             }
         }
-
     }
     &__categories{
         grid-column: 7 / 10;
